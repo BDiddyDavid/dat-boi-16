@@ -53,4 +53,34 @@ public class ClampToggle extends OpMode
    }
 
 
+
+   //Keep these declarations outside the loop
+   boolean pressed = false;
+   state = 0;
+   numberOfStates = 2;
+
+   //Stuff here goes in a loop
+   if(gamepad1.b)
+   {
+       if(!pressed)
+       {
+   		state = (state + 1) % numberOfStates;
+       }
+       pressed = true;
+   }
+   else
+   {
+       pressed = false;
+   }
+
+   switch(state)
+   {
+   	case 0:
+   		//Blah
+   	break;
+
+   	case 1:
+   		//Bleh
+   	break;
+   }
 }
