@@ -28,7 +28,7 @@ public class ClampToggle extends OpMode
         clamp2 = hardwareMap.servo.get("clamp2");
     }
 
-    public void loop()
+    public void button()
     {
         if(gamepad1.b)
         {
@@ -52,6 +52,7 @@ public class ClampToggle extends OpMode
             case 1:
                 setClamp(0.5);
                 break;
+        }
     }
 
 

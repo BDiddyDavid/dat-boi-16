@@ -13,8 +13,10 @@ public class practice extends OpMode
     DcMotor driveBL;
     DcMotor driveFR;
     DcMotor driveBR;
+
     DcMotor intake;
     DcMotor conveyor;
+
     DcMotor slide1;
     DcMotor slide2;
 
@@ -59,11 +61,27 @@ public class practice extends OpMode
         clamp2.setPosition(position);
     }
 
+    public void setLDrivePower (double power)
+    {
+        driveFL.setPower(power);
+        driveBL.setPower(power);
+    }
+
+    public void setRDrivePower (double power)
+    {
+        driveFR.setPower(power);
+        driveBR.setPower(power);
+    }
+
+
+
     boolean buttonB = false;
     boolean buttonB2 = false;
 
     // Threshold value ////////////////////////////////////////////////////////////////////////////
     public double thresh = 0.10;
+    ClampToggle ClampToggle = new ClampToggle();
+
 
     public void loop()
     {
@@ -71,10 +89,8 @@ public class practice extends OpMode
 
         if (Math.abs(gamepad1.left_stick_y) > thresh || Math.abs(gamepad1.right_stick_y) > thresh)
         {
-            driveFL.setPower(gamepad1.left_stick_y);
-            driveBL.setPower(gamepad1.left_stick_y);
-            driveFR.setPower(gamepad1.right_stick_y);
-            driveBR.setPower(gamepad1.right_stick_y);
+            setLDrivePower(gamepad1.left_stick_y);
+            setRDrivePower(gamepad1.right_stick_y);
         }
         else
         {
@@ -114,42 +130,18 @@ public class practice extends OpMode
             setLinearSlide(0.0);
         }
 
-
-
-
         // Linear SlideClamp controlled by Button B //////////////////////////////////////////////
 
-        // buttonB and buttonB2 are boolean values defined as false //////////////////////////////
-        // SetClamp is a function that sets position of the two clamp servos /////////////////////
-        if (!(buttonB) && (gamepad1.b))
-        {
-            setClamp(0.5);
-            buttonB = true;
-        }
 
-        if ((buttonB) && !(gamepad1.b))
-        {
-            buttonB2 = true;
-        }
+        ///// ORGANIZATION //////////////////////////////////////////////////////////
+       ClampToggle.button();
 
-        if ((buttonB2) && (gamepad1.b))
-        {
-            setClamp(0.0);
-            buttonB2 = false;
-        }
 
-        if (!(buttonB2) && !(gamepad1.b))
-        {
-            buttonB = false;
-        }
+
+
+
+
 
 
     }
-
-
-
-
-
-
-
 }
