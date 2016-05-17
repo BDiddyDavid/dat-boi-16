@@ -5,6 +5,9 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 /**
  * Created by Brandon on 4/20/2016.
  */
+
+// Program that initializes all other .java files /////////////////////////////////////////////////
+
 public class practice extends OpMode
 {
     drivetrain drivetrain;
@@ -12,7 +15,7 @@ public class practice extends OpMode
     intakeConveyor intakeConveyor;
     linearSlide linearSlide;
 
-    // Initializing motors ////////////////////////////////////////////////////////////////////////
+    // Initializing motors
     public void init()
     {
         drivetrain = new drivetrain(hardwareMap);
