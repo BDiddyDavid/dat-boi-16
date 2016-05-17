@@ -1,36 +1,40 @@
 package com.qualcomm.ftcrobotcontroller.opmodes.ftc2016practice;
 
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
 
 
 /**
  * Created by Brandon on 5/13/2016.
  */
-public class ClampToggle extends OpMode
+public class clampToggle
 {
     Servo clamp1;
     Servo clamp2;
 
+    public clampToggle(HardwareMap clampMap)
+    {
+        clamp1 = clampMap.servo.get("clamp1");
+        clamp2 = clampMap.servo.get("clamp2");
+    }
+
+    // Function allows position of clamp1 and clamp2 to be set simultaneously
     public void setClamp (double position)
     {
         clamp1.setPosition(position);
         clamp2.setPosition(position);
     }
 
+    // Toggle program developed by Moses "MossyApples" Won
+
     boolean pressed = false;
     int state = 0;
     int numberOfStates = 2;
 
-    public void init()
+    // y = button B
+    public void button(boolean y)
     {
-        clamp1 = hardwareMap.servo.get("clamp1");
-        clamp2 = hardwareMap.servo.get("clamp2");
-    }
-
-    public void button()
-    {
-        if(gamepad1.b)
+        if(y)
         {
             if(!pressed)
             {
