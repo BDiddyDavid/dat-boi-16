@@ -1,4 +1,4 @@
- package com.qualcomm.ftcrobotcontroller.opmodes.ftc2016practice;
+package com.qualcomm.ftcrobotcontroller.opmodes.ftc2016practice;
 
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.hardware.Servo;
 /**
  * Created by Brandon on 5/13/2016.
  */
-public class clampToggle
+public class clampToggle // clampToggle not used during competition
 {
     Servo clamp1;
     Servo clamp2;

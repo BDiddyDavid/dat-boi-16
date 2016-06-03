@@ -3,7 +3,7 @@ package com.qualcomm.ftcrobotcontroller.opmodes.ftc2016practice;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
-/**
+  /**
  * Created by Brandon on 5/16/2016.
  */
 public class drivetrain
@@ -34,8 +34,8 @@ public class drivetrain
         {
             driveFL.setPower(powerA);
             driveBL.setPower(powerA);
-            driveFR.setPower(powerB);
-            driveBR.setPower(powerB);
+            driveFR.setPower(-powerB);  // negative because reversed motor orientation
+            driveBR.setPower(-powerB);  // negative because reversed motor orientation
         }
         else
         {
