@@ -1,5 +1,5 @@
 #### by Team 542 WHS Robotics programmers (Brandon David, Annie Oh, Moses Won)
-###### last updated December 30, 2017
+###### code last updated June 3, 2016
 
 # whs-ftc-16
 
